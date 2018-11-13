@@ -96,7 +96,7 @@ mihotree.Branch("y",&y,"y/F");
 mihotree.Branch("z",&z,"z/F");
 mihotree.Branch("q",&q,"q/F");
 mihotree.Branch("t",&t,"t/F");
-// mihotree.Branch("evt",&evt,"evt/I");
+mihotree.Branch("evt",&evt,"evt/I");
 
   const long unsigned int nbEntries = wcsimT->GetEntries();
 
@@ -155,8 +155,6 @@ mihotree.Branch("t",&t,"t/F");
 
   } // END FOR iENTRY
 
-mihotree.Write();
-mihofile.Close();
 
   TH1 *temp;
     float win_scale=0.75;
@@ -185,6 +183,8 @@ mihofile.Close();
     // temp->SetTitle("average charge vs time");
     // temp->Draw();
 
+    mihotree.Write();
+    mihofile.Close();
 
 
   }
