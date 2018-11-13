@@ -86,7 +86,7 @@ void PMT_timing_position_per_event(char *filename=NULL) {
 
 //ben added
 
-TFile mihofile("test.root","RECREATE");
+TFile mihofile("test_per_evt.root","RECREATE");
 TTree mihotree("data","data");
 
 float x,y,z,q,t;
@@ -183,8 +183,13 @@ mihotree.Branch("evt",&evt,"evt/I");
     // temp->SetTitle("average charge vs time");
     // temp->Draw();
 
+<<<<<<< HEAD
     mihotree.Write();
     //mihofile.Close();
+=======
+   mihotree.Write();
+//    mihofile.Close();
+>>>>>>> d59c97fb5fdcfb8429845c5b991c9bed983566ee
 
 
   }
