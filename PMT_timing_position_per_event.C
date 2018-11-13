@@ -90,7 +90,7 @@ TFile mihofile("test.root","RECREATE");
 TTree mihotree("data","data");
 
 float x,y,z,q,t;
-// long unsigned int evt;
+long unsigned int evt = 0;
 mihotree.Branch("x",&x,"x/F");
 mihotree.Branch("y",&y,"y/F");
 mihotree.Branch("z",&z,"z/F");
@@ -103,7 +103,7 @@ mihotree.Branch("t",&t,"t/F");
   for(long unsigned int iEntry = 0; iEntry < nbEntries; iEntry++){
     // Point to event iEntry inside WCSimTree
     wcsimT->GetEvent(iEntry);
-    long unsigned int evt=iEntry;
+    evt = iEntry;
 
     // Nb of Trigger inside the event
     const unsigned int nbTriggers = wcsimroothyperevent->GetNumberOfEvents();
