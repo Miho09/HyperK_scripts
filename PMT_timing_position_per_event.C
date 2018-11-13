@@ -88,7 +88,7 @@ void PMT_timing_position_per_event(char *filename=NULL) {
 string rootfilename;
 cout << "Enter name of file for test root file: " << endl;
 cin >> rootfilename;
-TFile mihofile("rootfilename","RECREATE");
+TFile mihofile("%s",rootfilename, "RECREATE");
 TTree mihotree("data","data");
 
 float x,y,z,q,t;
