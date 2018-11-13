@@ -96,14 +96,14 @@ mihotree.Branch("y",&y,"y/F");
 mihotree.Branch("z",&z,"z/F");
 mihotree.Branch("q",&q,"q/F");
 mihotree.Branch("t",&t,"t/F");
-//mihotree.Branch("evt",&evt,"evt/I");
+mihotree.Branch("evt",&evt,"evt/I");
 
   const long unsigned int nbEntries = wcsimT->GetEntries();
 
   for(long unsigned int iEntry = 0; iEntry < nbEntries; iEntry++){
     // Point to event iEntry inside WCSimTree
     wcsimT->GetEvent(iEntry);
-    evt=0;
+    evt=static_cast<unsigned long int>(0);
 
     // Nb of Trigger inside the event
     const unsigned int nbTriggers = wcsimroothyperevent->GetNumberOfEvents();
