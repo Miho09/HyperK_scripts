@@ -96,7 +96,7 @@ mihotree.Branch("y",&y,"y/F");
 mihotree.Branch("z",&z,"z/F");
 mihotree.Branch("q",&q,"q/F");
 mihotree.Branch("t",&t,"t/F");
-mihotree.Branch("evt",&evt,"evt/I");
+//mihotree.Branch("evt",&evt,"evt/I");
 
   const long unsigned int nbEntries = wcsimT->GetEntries();
 
