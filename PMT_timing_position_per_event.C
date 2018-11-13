@@ -183,7 +183,7 @@ mihotree.Branch("evt",&evt,"evt/I");
     // temp->SetTitle("average charge vs time");
     // temp->Draw();
 
-//    mihotree.Write();
+   mihotree.Write();
 //    mihofile.Close();
 
 
