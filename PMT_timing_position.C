@@ -122,12 +122,6 @@ mihotree.Branch("t",&t,"t/F");
             //WCSimRootChernkovDigiHit has methods GetTubeId(), GetT(), GetQ()
             QvsT->Fill(cDigiHit->GetT(), cDigiHit->GetQ());
 
-<<<<<<< HEAD
-
-=======
-//          }
->>>>>>> eff0dd05c9cdb0f805085cc0abbda69db1d616cd
-
 
           double charge = hit->GetQ();
           int tubeId = hit -> GetTubeId();
@@ -159,8 +153,6 @@ mihotree.Branch("t",&t,"t/F");
 
   } // END FOR iENTRY
 
-mihotree.Write();
-mihofile.Close();
 
   TH1 *temp;
     float win_scale=0.75;
@@ -189,6 +181,8 @@ mihofile.Close();
     // temp->SetTitle("average charge vs time");
     // temp->Draw();
 
+    mihotree.Write();
+    // mihofile.Close();
 
 
   }
