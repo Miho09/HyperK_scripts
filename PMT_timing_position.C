@@ -123,6 +123,7 @@ mihotree.Branch("t",&t,"t/F");
             QvsT->Fill(cDigiHit->GetT(), cDigiHit->GetQ());
 
 
+
           double charge = hit->GetQ();
           int tubeId = hit -> GetTubeId();
           double timing = hit->GetT();
@@ -153,6 +154,8 @@ mihotree.Branch("t",&t,"t/F");
 
   } // END FOR iENTRY
 
+mihotree.Write();
+// mihofile.Close();
 
   TH1 *temp;
     float win_scale=0.75;
@@ -181,8 +184,6 @@ mihotree.Branch("t",&t,"t/F");
     // temp->SetTitle("average charge vs time");
     // temp->Draw();
 
-    mihotree.Write();
-    // mihofile.Close();
 
 
   }
