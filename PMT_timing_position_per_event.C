@@ -85,7 +85,7 @@ void PMT_timing_position_per_event(char *filename=NULL) {
 
 
 //ben added
-str rootfilename;
+string rootfilename;
 cout << "Enter name of file for test root file: " << endl;
 cin >> rootfilename;
 TFile mihofile(rootfilename,"RECREATE");
