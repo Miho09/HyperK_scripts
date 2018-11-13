@@ -85,10 +85,10 @@ void PMT_timing_position_per_event(char *filename=NULL) {
 
 
 //ben added
-string rootfilename;
-cout << "Enter name of file for test root file: " << endl;
-cin >> rootfilename;
-TFile mihofile("%s",rootfilename, "RECREATE");
+// string rootfilename;
+// cout << "Enter name of file for test root file: " << endl;
+// cin >> rootfilename;
+TFile mihofile("10GeV_10_test.root", "RECREATE");
 TTree mihotree("data","data");
 
 float x,y,z,q,t;
