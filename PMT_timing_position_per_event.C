@@ -86,7 +86,7 @@ void PMT_timing_position_per_event(char *filename=NULL) {
 
 //ben added
 
-TFile mihofile("test.root","RECREATE");
+TFile mihofile("test_per_evt.root","RECREATE");
 TTree mihotree("data","data");
 
 float x,y,z,q,t;
