@@ -64,7 +64,7 @@ void distribution(char *filename=NULL) {
 
 
 
-  TH3D *discorr = new TH3D("coorq", "Cartesian coordinates with charge",1000,-4000,4000,1000,-4000,4000,1000,-4000,4000);
+  TH2D *discorr = new TH2D("coorq", "Cartesian coordinates with charge",1000,-4000,4000,1000,-4000,4000);
   cout << "1" << endl;
   discorr->SetTitle("Charge Distribution");
   cout << "2" << endl;
@@ -114,7 +114,7 @@ void distribution(char *filename=NULL) {
             // cout << "Y value: " << pmtY << endl;
           cout << "4" << endl;
 
-          discorr->Fill(pmtX, pmtY, pmtZ);
+          discorr->Fill(pmtX, pmtY);
 
           } // END FOR RAW HITS
 
