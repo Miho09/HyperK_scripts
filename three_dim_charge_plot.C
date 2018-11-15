@@ -34,11 +34,13 @@ void three_dim_charge_plot(char *filename=NULL) {
     cout << "Error, could not open input file: " << filename << endl;
     return -1;
   }
-  cout << "1" << endl;
   TTree  *wcsimT = f->Get("wcsimT");
 
   WCSimRootEvent *wcsimroothyperevent = new WCSimRootEvent();
   wcsimT->SetBranchAddress("wcsimrootevent",&wcsimroothyperevent);
+
+  TTree  *wcsimGeoT = (TTree*) f->Get("wcsimGeoT");
+
   cout << "2" << endl;
   TTree  *wcsimGeoT = (TTree*) f->Get("wcsimGeoT");
 cout << "3" << endl;
