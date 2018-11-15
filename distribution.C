@@ -130,7 +130,7 @@ void distribution(char *filename=NULL) {
     cout << "6" << endl;
 
     c1->cd();
-    discorr->Draw("colz");
+    discorr->Draw();
 
 
 
