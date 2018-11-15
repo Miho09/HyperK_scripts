@@ -65,24 +65,11 @@ void PMT_timing_position_per_event(char *filename=NULL) {
   // coor_q->SetXTitle("charge");
 
 
-TFile mihofile("test.root", "RECREATE");
-TTree mihotree("data","data");
-
-float x,y,z,q,t;
-long unsigned int evt = 0;
-mihotree.Branch("x",&x,"x/F");
-mihotree.Branch("y",&y,"y/F");
-mihotree.Branch("z",&z,"z/F");
-mihotree.Branch("q",&q,"q/F");
-mihotree.Branch("t",&t,"t/F");
-mihotree.Branch("evt",&evt,"evt/I");
-
   const long unsigned int nbEntries = wcsimT->GetEntries();
 
   for(long unsigned int iEntry = 0; iEntry < nbEntries; iEntry++){
     // Point to event iEntry inside WCSimTree
     wcsimT->GetEvent(iEntry);
-    evt = iEntry;
 
     // Nb of Trigger inside the event
     const unsigned int nbTriggers = wcsimroothyperevent->GetNumberOfEvents();
@@ -113,14 +100,6 @@ mihotree.Branch("evt",&evt,"evt/I");
           double pmtY = pmt.GetPosition(1);
           double pmtZ = pmt.GetPosition(2);
 
-          x=pmtX;
-          y=pmtY;
-          z=pmtZ;
-          q=charge;
-          t=timing;
-
-          mihotree.Fill();
-
           // cout << "Y value: " << pmtY << endl;
 
           coor_q->Fill(pmtX, pmtY, pmtZ, charge);
@@ -135,14 +114,9 @@ mihotree.Branch("evt",&evt,"evt/I");
   TH1 *temp;
     TCanvas *c1 = new TCanvas("c1","c1",800,800);
 
-    // c1->cd(1);
-    // QvsT->Draw("colz");
-
-    // c1->cd(1);
     coor_q->Draw("colz");
 
 
-    mihotree.Write();
 
 
   }
