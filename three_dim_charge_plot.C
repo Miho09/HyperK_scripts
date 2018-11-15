@@ -89,20 +89,20 @@ void three_dim_charge_plot(char *filename=NULL) {
 
             WCSimRootCherenkovDigiHit *cDigiHit = wcsimrootevent->GetCherenkovDigiHits()->At(i);
             //WCSimRootChernkovDigiHit has methods GetTubeId(), GetT(), GetQ()
-            QvsT->Fill(cDigiHit->GetT(), cDigiHit->GetQ());
+            // QvsT->Fill(cDigiHit->GetT(), cDigiHit->GetQ());
 
-          double charge = hit->GetQ();
-          int tubeId = hit -> GetTubeId();
-          double timing = hit->GetT();
-          // cout << "Tube ID: " << tubeId << endl;
-          WCSimRootPMT pmt = wcsimrootgeom->GetPMT(tubeId);
-          double pmtX = pmt.GetPosition(0);
-          double pmtY = pmt.GetPosition(1);
-          double pmtZ = pmt.GetPosition(2);
+            double charge = hit->GetQ();
+            int tubeId = hit -> GetTubeId();
+            double timing = hit->GetT();
+            // cout << "Tube ID: " << tubeId << endl;
+            WCSimRootPMT pmt = wcsimrootgeom->GetPMT(tubeId);
+            double pmtX = pmt.GetPosition(0);
+            double pmtY = pmt.GetPosition(1);
+            double pmtZ = pmt.GetPosition(2);
 
           // cout << "Y value: " << pmtY << endl;
 
-          coor_q->Fill(pmtX, pmtY, pmtZ, charge);
+            coor_q->Fill(pmtX, pmtY, pmtZ, charge);
 
           } // END FOR RAW HITS
 
