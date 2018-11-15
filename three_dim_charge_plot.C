@@ -108,7 +108,7 @@ void three_dim_charge_plot(char *filename=NULL) {
   } // END FOR iENTRY
 
 
-    TH1 *temp;
+//    TH1 *temp;
     TCanvas *c1 = new TCanvas("c1","c1",800,800);
     return c1;
     //coor_q->Draw("colz");
