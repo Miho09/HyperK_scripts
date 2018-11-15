@@ -59,7 +59,7 @@ void three_dim_charge_plot(char *filename=NULL) {
 
   //-----------------------
 
-  TH3D *coor_q = =new TH3D("coor_q", "Cartesian coordinates with charge",1000,-4000,4000,1000,-4000,4000,1000,-4000,4000);
+  TH3D *coor_q = new TH3D("coor_q", "Cartesian coordinates with charge",1000,-4000,4000,1000,-4000,4000,1000,-4000,4000);
   coor_q->SetYTitle("Charge distribution in 3D");
   // graph.GetYaxis()->SetTitleOffset(1.4);
   // coor_q->SetXTitle("charge");
