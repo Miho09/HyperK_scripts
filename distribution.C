@@ -62,7 +62,10 @@ void distribution(char *filename=NULL) {
 
 
   TH3D *discorr = new TH3D("coorq", "Cartesian coordinates with charge",1000,-4000,4000,1000,-4000,4000,1000,-4000,4000);
+  cout << "1" << endl;
   discorr->SetTitle("Charge Distribution");
+  cout << "2" << endl;
+
   // graph.GetYaxis()->SetTitleOffset(1.4);
 
 
@@ -71,6 +74,7 @@ void distribution(char *filename=NULL) {
 // cout << "Enter name of file for test root file: " << endl;
 // cin >> rootfilename;
   const long unsigned int nbEntries = wcsimT->GetEntries();
+  cout << "3" << endl;
 
   for(long unsigned int iEntry = 0; iEntry < nbEntries; iEntry++){
     // Point to event iEntry inside WCSimTree
@@ -105,6 +109,7 @@ void distribution(char *filename=NULL) {
           double pmtZ = pmt.GetPosition(2);
 
             // cout << "Y value: " << pmtY << endl;
+          cout << "4" << endl;
 
           discorr->Fill(pmtX, pmtY, pmtZ, charge);
 
@@ -114,14 +119,16 @@ void distribution(char *filename=NULL) {
 
   } // END FOR iENTRY
 
+  cout << "5" << endl;
 
   TH1 *temp;
     float win_scale=0.75;
-        TCanvas *c1 = new TCanvas("c1","c1",800,800);
+    TCanvas *c1 = new TCanvas("c1","c1",800,800);
+    cout << "6" << endl;
 
     c1->cd();
     discorr->Draw("colz");
 
-  
+
 
   }
