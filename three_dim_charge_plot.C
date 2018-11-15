@@ -99,7 +99,7 @@ void three_dim_charge_plot(char *filename=NULL) {
 
           // cout << "Y value: " << pmtY << endl;
 
-            coor_q->Fill(pmtX, pmtY, pmtZ, charge);
+            // coor_q->Fill(pmtX, pmtY, pmtZ, charge);
 
           } // END FOR RAW HITS
 
