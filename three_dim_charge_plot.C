@@ -12,8 +12,6 @@ void three_dim_charge_plot(char *filename=NULL) {
    * $ root -l -x 'read_PMT.C("../wcsim.root")'
    */
 
-
-
   gROOT->Reset();
   char* wcsimdirenv;
   wcsimdirenv = getenv ("WCSIMDIR");
@@ -37,7 +35,7 @@ void three_dim_charge_plot(char *filename=NULL) {
 
 
   TTree  *wcsimT = f->Get("wcsimT");
-
+  cout << "1" << endl;
   WCSimRootEvent *wcsimroothyperKevent = new WCSimRootEvent();
   wcsimT->SetBranchAddress("wcsimrootevent",&wcsimroothyperKevent);
 
