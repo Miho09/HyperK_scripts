@@ -100,7 +100,7 @@ void distribution(char *filename=NULL) {
 
             WCSimRootCherenkovDigiHit *cDigiHit = wcsimrootevent->GetCherenkovDigiHits()->At(i);
             //WCSimRootChernkovDigiHit has methods GetTubeId(), GetT(), GetQ()
-            QvsT->Fill(cDigiHit->GetT(), cDigiHit->GetQ());
+            // QvsT->Fill(cDigiHit->GetT(), cDigiHit->GetQ());
 
           double charge = hit->GetQ();
           int tubeId = hit -> GetTubeId();
