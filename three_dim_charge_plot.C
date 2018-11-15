@@ -34,30 +34,27 @@ void three_dim_charge_plot(char *filename=NULL) {
     cout << "Error, could not open input file: " << filename << endl;
     return -1;
   }
-
+  cout << "1" << endl;
   TTree  *wcsimT = f->Get("wcsimT");
 
   WCSimRootEvent *wcsimroothyperevent = new WCSimRootEvent();
   wcsimT->SetBranchAddress("wcsimrootevent",&wcsimroothyperevent);
-
+  cout << "2" << endl;
   TTree  *wcsimGeoT = (TTree*) f->Get("wcsimGeoT");
-
+cout << "3" << endl;
   WCSimRootGeom *wcsimrootgeom = 0;
   wcsimGeoT->SetBranchAddress("wcsimrootgeom",&wcsimrootgeom);
   // cout << "wcsimrootgeom value: " << wcsimrootgeom << endl;
   // cout << "getentry: " << wcsimGeoT->GetEntries() << endl;
   wcsimGeoT->GetEntry(0);
-
+cout << "4" << endl;
   // Force deletion to prevent memory leak when issuing multiple
   // calls to GetEvent()
   wcsimT->GetBranch("wcsimrootevent")->SetAutoDelete(kTRUE);
 
-
   //--------------------------
   // As you can see, there are lots of ways to get the number of hits.
   cout << "Nb of entries " << wcsimT->GetEntries() << endl;
-
-  //-----------------------
 
   TH3D *coor_q = new TH3D("coor_q", "Cartesian coordinates with charge",1000,-4000,4000,1000,-4000,4000,1000,-4000,4000);
   coor_q->SetYTitle("Charge distribution in 3D");
