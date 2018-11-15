@@ -114,7 +114,7 @@ void distribution(char *filename=NULL) {
             // cout << "Y value: " << pmtY << endl;
           cout << "4" << endl;
 
-          discorr->Fill(pmtX, pmtY, pmtZ, charge);
+          discorr->Fill(pmtX, pmtY, pmtZ);
 
           } // END FOR RAW HITS
 
