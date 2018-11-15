@@ -114,7 +114,7 @@ void distribution(char *filename=NULL) {
             // cout << "Y value: " << pmtY << endl;
           cout << "4" << endl;
 
-          discorr->Fill(pmtX, pmtY);
+          discorr->Fill(pmtX, pmtY, pmtZ, charge);
 
           } // END FOR RAW HITS
 
@@ -130,7 +130,7 @@ void distribution(char *filename=NULL) {
     cout << "6" << endl;
 
     c1->cd();
-    discorr->Draw(“BOX”);
+    discorr->Draw("GLISO");
 
 
 
