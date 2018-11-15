@@ -38,8 +38,8 @@ void three_dim_charge_plot(char *filename=NULL) {
 
   TTree  *wcsimT = f->Get("wcsimT");
 
-  WCSimRootEvent *wcsimroothyperevent = new WCSimRootEvent();
-  wcsimT->SetBranchAddress("wcsimrootevent",&wcsimroothyperevent);
+  WCSimRootEvent *wcsimroothyperKevent = new WCSimRootEvent();
+  wcsimT->SetBranchAddress("wcsimrootevent",&wcsimroothyperKevent);
 
   cout << "2" << endl;
   TTree  *wcsimGeoT = (TTree*) f->Get("wcsimGeoT");
@@ -71,11 +71,11 @@ void three_dim_charge_plot(char *filename=NULL) {
     wcsimT->GetEvent(iEntry);
 
     // Nb of Trigger inside the event
-    const unsigned int nbTriggers = wcsimroothyperevent->GetNumberOfEvents();
-    const unsigned int nbSubTriggers = wcsimroothyperevent->GetNumberOfSubEvents();
+    const unsigned int nbTriggers = wcsimroothyperKevent->GetNumberOfEvents();
+    const unsigned int nbSubTriggers = wcsimroothyperKevent->GetNumberOfSubEvents();
 
     for(long unsigned int iTrig = 0; iTrig < nbTriggers; iTrig++){
-      WCSimRootTrigger *wcsimrootevent = wcsimroothyperevent->GetTrigger(iTrig);
+      WCSimRootTrigger *wcsimrootevent = wcsimroothyperKevent->GetTrigger(iTrig);
 
       // RAW HITS
       int ncherenkovdigihits = wcsimrootevent->GetNcherenkovdigihits();
