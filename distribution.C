@@ -2,6 +2,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <TH3.h>
+#include <TH1.h>
+
 
 void distribution(char *filename=NULL) {
   /* A simple script to plot aspects of phototube hits
