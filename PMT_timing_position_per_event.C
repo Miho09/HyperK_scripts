@@ -88,7 +88,7 @@ void PMT_timing_position_per_event(char *filename=NULL) {
 // string rootfilename;
 // cout << "Enter name of file for test root file: " << endl;
 // cin >> rootfilename;
-TFile mihofile("1TeV_10_test.root", "RECREATE");
+TFile mihofile("/root/HyperK/WCSim/root_files/1TeV/1TeV_10_yaxis_within_34_test.root", "RECREATE");
 TTree mihotree("data","data");
 
 float x,y,z,q,t;

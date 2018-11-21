@@ -124,13 +124,13 @@ void distribution(char *filename=NULL) {
 
   cout << "5" << endl;
 
-  TH1 *temp;
+  TH3 *temp;
     float win_scale=0.75;
     TCanvas *c1 = new TCanvas("c1","c1",800,800);
     cout << "6" << endl;
 
     c1->cd();
-    discorr->Draw("GLISO");
+    discorr->Draw("ISO");
 
 
 
