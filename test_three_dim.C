@@ -123,7 +123,7 @@ void test_three_dim(char *filename=NULL) {
    TH1 *temp;
       gStyle->SetNumberContours(112);
       // gStyle->SetPalette(112);
-      coor_q->Draw("SURF3");
+      coor_q->Draw("SURF2");
 
 
 
