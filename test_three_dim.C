@@ -121,6 +121,7 @@ void test_three_dim(char *filename=NULL) {
 
 
    TH1 *temp;
+      gStyle->SetPalette(kViridis);
       coor_q->Draw("SURF3");
 
 
