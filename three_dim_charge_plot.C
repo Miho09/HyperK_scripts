@@ -35,19 +35,19 @@ void three_dim_charge_plot(char *filename=NULL) {
 
 
   TTree  *wcsimT = f->Get("wcsimT");
-  cout << "1" << endl;
+  // cout << "1" << endl;
   WCSimRootEvent *wcsimroothyperKevent = new WCSimRootEvent();
   wcsimT->SetBranchAddress("wcsimrootevent",&wcsimroothyperKevent);
 
-  cout << "2" << endl;
+  // cout << "2" << endl;
   TTree  *wcsimGeoT = (TTree*) f->Get("wcsimGeoT");
-  cout << "3" << endl;
+  // cout << "3" << endl;
   WCSimRootGeom *wcsimrootgeom = 0;
   wcsimGeoT->SetBranchAddress("wcsimrootgeom",&wcsimrootgeom);
   // cout << "wcsimrootgeom value: " << wcsimrootgeom << endl;
   // cout << "getentry: " << wcsimGeoT->GetEntries() << endl;
   wcsimGeoT->GetEntry(0);
-  cout << "4" << endl;
+  // cout << "4" << endl;
   // Force deletion to prevent memory leak when issuing multiple
   // calls to GetEvent()
   wcsimT->GetBranch("wcsimrootevent")->SetAutoDelete(kTRUE);
@@ -95,13 +95,24 @@ void three_dim_charge_plot(char *filename=NULL) {
             double pmtX = pmt.GetPosition(0);
             double pmtY = pmt.GetPosition(1);
             double pmtZ = pmt.GetPosition(2);
+            cout << "1" << endl;
+
+
             std::ofstream outputFile("./three_dim_charge_plot.txt");
                 if (outputFile.fail())
                 {
                     std::cout << "Failed to open outputfile.\n";
                 }
+
+            cout << "2" << endl;
+
             outputFile << pmtX, pmtY, pmtZ, charge;
+            cout << "3" << endl;
+
             outputFile.close();
+
+            cout << "5" << endl;
+
             // ofstream myfile;
             // myfile.open ("three_dim_charge_plot.txt");
             // myfile << pmtX, pmtY, pmtZ, charge;
