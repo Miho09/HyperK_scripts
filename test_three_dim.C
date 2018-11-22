@@ -63,7 +63,7 @@ void test_three_dim(char *filename=NULL) {
   // As you can see, there are lots of ways to get the number of hits.
   cout << "Nb of entries " << wcsimT->GetEntries() << endl;
 
-  TH3D *coor_q = new TH3D("coorq", "Cartesian coordinates with charge",1000,-4000,4000,1000,-4000,4000,1000,-4000,4000);
+  TH3D *coor_q = new TH3D("coorq", "Cartesian coordinates with charge",100,-4000,4000,100,-4000,4000,100,-4000,4000);
   coor_q->SetMinimum(1e-11);
 
   coor_q->SetYTitle("Charge distribution in 3D");
