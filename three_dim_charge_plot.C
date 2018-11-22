@@ -84,9 +84,11 @@ void three_dim_charge_plot(char *filename=NULL) {
 
       // RAW HITS
       int ncherenkovdigihits = wcsimrootevent->GetNcherenkovdigihits();
-      ofstream myfile;
-      myfile.open ("three_dim_charge_plot.txt");
-
+      ofstream xfile, yfile, zfile, qfile;
+      xfile.open ("x_three_dim_charge_plot.txt");
+      yfile.open ("y_three_dim_charge_plot.txt");
+      zyfile.open ("z_three_dim_charge_plot.txt");
+      qfile.open ("q_three_dim_charge_plot.txt");
         for (int i = 0; i < ncherenkovdigihits; i++){
           WCSimRootCherenkovDigiHit *hit = (WCSimRootCherenkovDigiHit*)
           (wcsimrootevent->GetCherenkovDigiHits()->At(i));
@@ -106,7 +108,10 @@ void three_dim_charge_plot(char *filename=NULL) {
             double pmtY = pmt.GetPosition(1);
             double pmtZ = pmt.GetPosition(2);
             // cout << "pmtX: " << << pmtX <<  endl;
-            myfile << pmtX;
+            xfile << pmtX;
+            yfile << pmtX;
+            zfile << pmtX;
+            qfile << pmtX;
             // , pmtY, pmtZ, charge;
             // cout << "3" << endl;
 
@@ -144,7 +149,12 @@ void three_dim_charge_plot(char *filename=NULL) {
             // coor_q->Fill(pmtX, pmtY, pmtZ, charge);
 
           } // END FOR RAW HITS
-          myfile.close();
+          // myfile.close();
+          xfile.close();
+          yfile.close();
+          zfile.close();
+          qfile.close();
+
 
     } // END FOR iTRIG
 
