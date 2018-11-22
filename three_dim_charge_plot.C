@@ -108,10 +108,10 @@ void three_dim_charge_plot(char *filename=NULL) {
             double pmtY = pmt.GetPosition(1);
             double pmtZ = pmt.GetPosition(2);
             // cout << "pmtX: " << << pmtX <<  endl;
-            xfile << pmtX;
-            yfile << pmtX;
-            zfile << pmtX;
-            qfile << pmtX;
+            xfile << " " << pmtX << " ";
+            yfile << " " << pmtY << " ";
+            zfile << " " << pmtZ << " ";
+            qfile << " " << charge << " ";
             // , pmtY, pmtZ, charge;
             // cout << "3" << endl;
 
