@@ -121,8 +121,7 @@ void test_three_dim(char *filename=NULL) {
 
 
    TH1 *temp;
-      gStyle->SetPalette(kBird);
-      coor_q->Draw("LEGO2");
+      coor_q->Draw("ISO");
 
 
 
