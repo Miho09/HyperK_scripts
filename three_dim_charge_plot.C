@@ -106,8 +106,9 @@ void three_dim_charge_plot(char *filename=NULL) {
 
 
             ofstream myfile;
-            myfile.open ("three_dim_charge_plot.txt")
-            myfile << pmtX, pmtY, pmtZ, charge;
+            myfile.open ("three_dim_charge_plot.txt");
+            myfile << pmtX;
+            // , pmtY, pmtZ, charge;
             cout << "3" << endl;
 
             myfile.close();
