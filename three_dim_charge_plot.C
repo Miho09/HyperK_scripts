@@ -87,7 +87,7 @@ void three_dim_charge_plot(char *filename=NULL) {
       ofstream xfile, yfile, zfile, qfile;
       xfile.open ("x_three_dim_charge_plot.txt");
       yfile.open ("y_three_dim_charge_plot.txt");
-      zyfile.open ("z_three_dim_charge_plot.txt");
+      zfile.open ("z_three_dim_charge_plot.txt");
       qfile.open ("q_three_dim_charge_plot.txt");
         for (int i = 0; i < ncherenkovdigihits; i++){
           WCSimRootCherenkovDigiHit *hit = (WCSimRootCherenkovDigiHit*)
