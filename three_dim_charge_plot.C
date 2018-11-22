@@ -1,7 +1,14 @@
-#include <fstream>
-#include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
+
+#include<iostream>
+#include<sstream>
+#include<fstream>
+#include<iomanip>
+
+
+using namespace std;
+
 
 void three_dim_charge_plot(char *filename=NULL) {
   /* A simple script to plot aspects of phototube hits
@@ -98,20 +105,35 @@ void three_dim_charge_plot(char *filename=NULL) {
             cout << "1" << endl;
 
 
-            std::ofstream outputFile("./three_dim_charge_plot.txt");
-                if (outputFile.fail())
-                {
-                    std::cout << "Failed to open outputfile.\n";
-                }
-
-            cout << "2" << endl;
-
-            outputFile << pmtX, pmtY, pmtZ, charge;
+            ofstream myfile;
+            myfile.open ("three_dim_charge_plot.txt")
+            myfile << pmtX, pmtY, pmtZ, charge;
             cout << "3" << endl;
 
-            outputFile.close();
+            myfile.close();
 
             cout << "5" << endl;
+
+            return 0;
+
+// int main ()
+// {
+//     int i=0, x=0, y=0;
+//     ofstream myfile;
+//     myfile.open ("example1.txt");
+//
+//     for (int j=0; j < 3; j++)
+//     {
+//         myfile  << i ;
+//         myfile  << " " << x;
+//         myfile  << " " << y << endl;
+//         i++;
+//         x = x + 2;
+//         y = x + 1;
+//     }
+//     myfile.close();
+//     return 0;
+// }
 
             // ofstream myfile;
             // myfile.open ("three_dim_charge_plot.txt");
