@@ -84,6 +84,9 @@ void three_dim_charge_plot(char *filename=NULL) {
 
       // RAW HITS
       int ncherenkovdigihits = wcsimrootevent->GetNcherenkovdigihits();
+      ofstream myfile;
+      myfile.open ("three_dim_charge_plot.txt");
+
         for (int i = 0; i < ncherenkovdigihits; i++){
           WCSimRootCherenkovDigiHit *hit = (WCSimRootCherenkovDigiHit*)
           (wcsimrootevent->GetCherenkovDigiHits()->At(i));
@@ -103,10 +106,6 @@ void three_dim_charge_plot(char *filename=NULL) {
             double pmtY = pmt.GetPosition(1);
             double pmtZ = pmt.GetPosition(2);
             // cout << "pmtX: " << << pmtX <<  endl;
-
-
-            ofstream myfile;
-            myfile.open ("three_dim_charge_plot.txt");
             myfile << pmtX;
             // , pmtY, pmtZ, charge;
             // cout << "3" << endl;
