@@ -109,7 +109,7 @@ void three_dim_charge_plot(char *filename=NULL) {
             myfile.open ("three_dim_charge_plot.txt");
             myfile << pmtX;
             // , pmtY, pmtZ, charge;
-            cout << "3" << endl;
+            // cout << "3" << endl;
 
             myfile.close();
 
