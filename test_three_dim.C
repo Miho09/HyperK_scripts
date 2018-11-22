@@ -121,7 +121,7 @@ void test_three_dim(char *filename=NULL) {
 
 
    TH1 *temp;
-      coor_q->Draw("surf2");
+      coor_q->Draw("colz2");
 
 
 
