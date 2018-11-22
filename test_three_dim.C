@@ -121,6 +121,8 @@ void test_three_dim(char *filename=NULL) {
 
 
    TH1 *temp;
+      coor_q->SetFillColor(2);
+
       gStyle->SetNumberContours(112);
       // gStyle->SetPalette(112);
       coor_q->Draw("SURF2");
