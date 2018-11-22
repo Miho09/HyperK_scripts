@@ -1,5 +1,5 @@
 
-
+#include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -87,7 +87,6 @@ void three_dim_charge_plot(char *filename=NULL) {
             WCSimRootCherenkovDigiHit *cDigiHit = wcsimrootevent->GetCherenkovDigiHits()->At(i);
             //WCSimRootChernkovDigiHit has methods GetTubeId(), GetT(), GetQ()
             // QvsT->Fill(cDigiHit->GetT(), cDigiHit->GetQ());
-
             double charge = hit->GetQ();
             int tubeId = hit -> GetTubeId();
             double timing = hit->GetT();
@@ -96,6 +95,11 @@ void three_dim_charge_plot(char *filename=NULL) {
             double pmtX = pmt.GetPosition(0);
             double pmtY = pmt.GetPosition(1);
             double pmtZ = pmt.GetPosition(2);
+
+            ofstream myfile;
+            myfile.open ("three_dim_charge_plot.txt");
+            myfile << pmtX, pmtY, pmtZ, charge;
+            myfile.close();
 
           // cout << "Y value: " << pmtY << endl;
 
@@ -109,9 +113,7 @@ void three_dim_charge_plot(char *filename=NULL) {
 
 
 //    TH1 *temp;
-    TCanvas *c1 = new TCanvas("c1","c1",800,800);
-    return c1;
-    //coor_q->Draw("colz");
+      //coor_q->Draw("colz");
 
 
 
