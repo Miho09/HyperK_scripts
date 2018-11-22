@@ -105,7 +105,7 @@ void test_three_dim(char *filename=NULL) {
             double pmtY = pmt.GetPosition(1);
             double pmtZ = pmt.GetPosition(2);
 
-            coor_q->Fill(pmtX, pmtY, pmtZ);
+            coor_q->Fill(pmtX, pmtY, pmtZ, charge);
 
           } // END FOR RAW HITS
           // myfile.close();
