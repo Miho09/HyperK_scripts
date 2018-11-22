@@ -111,7 +111,6 @@ void three_dim_charge_plot(char *filename=NULL) {
             // , pmtY, pmtZ, charge;
             // cout << "3" << endl;
 
-            myfile.close();
 
             // cout << "5" << endl;
 
@@ -146,6 +145,7 @@ void three_dim_charge_plot(char *filename=NULL) {
             // coor_q->Fill(pmtX, pmtY, pmtZ, charge);
 
           } // END FOR RAW HITS
+          myfile.close();
 
     } // END FOR iTRIG
 
