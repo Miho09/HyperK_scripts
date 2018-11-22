@@ -1,4 +1,4 @@
-#include <fstream>  
+#include <fstream>
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
@@ -95,11 +95,17 @@ void three_dim_charge_plot(char *filename=NULL) {
             double pmtX = pmt.GetPosition(0);
             double pmtY = pmt.GetPosition(1);
             double pmtZ = pmt.GetPosition(2);
-
-            ofstream myfile;
-            myfile.open ("three_dim_charge_plot.txt");
-            myfile << pmtX, pmtY, pmtZ, charge;
-            myfile.close();
+            std::ofstream outputFile("./three_dim_charge_plot.txt");
+                if (outputFile.fail())
+                {
+                    std::cout << "Failed to open outputfile.\n";
+                }
+            outputFile << pmtX, pmtY, pmtZ, charge;
+            outputFile.close();
+            // ofstream myfile;
+            // myfile.open ("three_dim_charge_plot.txt");
+            // myfile << pmtX, pmtY, pmtZ, charge;
+            // myfile.close();
 
           // cout << "Y value: " << pmtY << endl;
 
