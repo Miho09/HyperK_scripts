@@ -64,7 +64,7 @@ void qraw_zaxis(char *filename=NULL) {
 
 
 
-  TH2F *Qraw_z = new TH2F("Qraw_z","Raw Charge vs Z axis",100,0,100,1000,-4000,4000);
+  TH2F *Qraw_z = new TH2F("Qraw_z","Raw Charge vs Z axis",100,70,80,1000,-4000,4000);
 
   // TH2D *discorr = new TH3D("coorq", "Cartesian coordinates with charge",100,-4000,4000,100,-4000,4000,1000,-4000,4000);
   // cout << "1" << endl;
@@ -115,7 +115,7 @@ void qraw_zaxis(char *filename=NULL) {
             // cout << "Y value: " << pmtY << endl;
           // cout << "4" << endl;
 
-          Qraw_z->Fill(pmtZ, charge);
+          Qraw_z->Fill(charge, pmtZ);
 
           } // END FOR RAW HITS
 
