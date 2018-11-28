@@ -127,7 +127,7 @@ void qraw_yaxis(char *filename=NULL) {
 
   TCanvas *c1 = new TCanvas("c1");
 
-   Qraw_z->Draw();
+   Qraw_y->Draw();
    c1->Update();
    Qraw_y->SetMarkerStyle(3);
 
