@@ -64,7 +64,7 @@ void distribution(char *filename=NULL) {
 
 
 
-  TH3D *discorr = new TH3D("coorq", "Cartesian coordinates with charge",1000,-4000,4000,1000,-4000,4000,1000,-4000,4000);
+  TH3D *discorr = new TH3D("coorq", "Cartesian coordinates with charge",100,-4000,4000,100,-4000,4000,100,-4000,4000);
   // cout << "1" << endl;
   discorr->SetTitle("Charge Distribution");
   // cout << "2" << endl;
