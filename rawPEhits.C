@@ -63,22 +63,11 @@ void rawPEhits(char *filename=NULL) {
   //-----------------------
 
 
-  TH1* Qraw_hist = new TH1I("Qraw_hist", "Qraw_hist", 100, 0.0, 100.0);
+  TH1* PE_hist = new TH1I("Qraw_hist", "Qraw_hist", 100, 0.0, 100.0);
 
-  // TH1D *Qraw_y = new TH2F("Qraw_y","Raw Charge vs Y axis",100,70,80,1000,-4000,4000);
-
-  // TH2D *discorr = new TH3D("coorq", "Cartesian coordinates with charge",100,-4000,4000,100,-4000,4000,1000,-4000,4000);
-  // cout << "1" << endl;
-  Qraw_hist->SetTitle("Raw Photons Histogram");
-  // cout << "2" << endl;
-
-  // graph.GetYaxis()->SetTitleOffset(1.4);
+  PE_hist->SetTitle("Raw Photons Histogram");
 
 
-//ben added
-// string rootfilename;
-// cout << "Enter name of file for test root file: " << endl;
-// cin >> rootfilename;
   const long unsigned int nbEntries = wcsimT->GetEntries();
 
   for(long unsigned int iEntry = 0; iEntry < nbEntries; iEntry++){
@@ -91,36 +80,25 @@ void rawPEhits(char *filename=NULL) {
     for(long unsigned int iTrig = 0; iTrig < nbTriggers; iTrig++){
       WCSimRootTrigger *wcsimrootevent = wcsimroothyperevent->GetTrigger(iTrig);
 
-      // cout << "Number of Cherenkov tube hits " << wcsimrootevent->GetNcherenkovhits() << endl;
-      // cout << "Number of Cherenkov tube hits " << wcsimrootevent->GetCherenkovHits()->GetEntries() << endl;
+      // int max=wcsimrootevent->GetNcherenkovhits();
+      // for (int i = 0; i<max; i++){
+      //   WCSimRootCherenkovHit *chit = wcsimrootevent->GetCherenkovHits()->At(i);
+      //   PMT_hits->Fill(chit->GetTubeID());
+      //   //WCSimRootCherenkovHit has methods GetTubeId(), GetTotalPe(int)
+      //   PE->Fill(chit->GetTotalPe(1));
+      // }
 
-      // RAW HITS
+
+        // RAW HITS
       int ncherenkovhits = wcsimrootevent->GetNcherenkovhits();
         for (int i = 0; i < ncherenkovhits; i++){
-      //     WCSimRootCherenkovHit *hit = (WCSimRootCherenkovHit*)
-      //     (wcsimrootevent->GetCherenkovHits()->At(i));
-      // //WCSimRootChernkovDigiHit has methods GetTubeId(), GetT(), GetQ()
-            // WCSimRootCherenkovHitTime *cHitTime = wcsimrootevent->GetCherenkovHitTimes()->At(i);
-            //WCSimRootCherenkovHitTime has methods GetTubeId(), GetTruetime()
 
             WCSimRootCherenkovHit *cHit = wcsimroothyperevent->GetCherenkovHits()->At(i);
-            //WCSimRootChernkovDigiHit has methods GetTubeId(), GetT(), GetQ()
-            // QvsT->Fill(cDigiHit->GetT(), cDigiHit->GetQ());
 
-          double truephotons = cHit->GetTotalPE(1);
-          int tubeId = cHit -> GetTubeId();
-          // // cout << "Tube ID: " << tubeId << endl;
-          // WCSimRootPMT pmt = wcsimrootgeom->GetPMT(tubeId);
-          // double pmtX = pmt.GetPosition(0);
-          // double pmtY = pmt.GetPosition(1);
-          // double pmtZ = pmt.GetPosition(2);
-
-            // cout << "Y value: " << pmtY << endl;
-          // cout << "4" << endl;
-
-          Qraw_hist->Fill(truephotons);
-
-          } // END FOR RAW HITS
+            PMT_hits->Fill(chit->GetTubeID());
+            //WCSimRootCherenkovHit has methods GetTubeId(), GetTotalPe(int)
+            PE_hist->Fill(chit->GetTotalPe(1));
+          }// END FOR RAW HITS
 
     } // END FOR iTRIG
 
@@ -130,9 +108,9 @@ void rawPEhits(char *filename=NULL) {
 
   TCanvas *c1 = new TCanvas("c1");
 
-   Qraw_hist->Draw();
+   PE_hist->Draw();
    c1->Update();
-   Qraw_hist->SetMarkerStyle(3);
+   PE_hist->SetMarkerStyle(3);
 
    // T->Draw("Cost:Age>>hist","","goff");
 
