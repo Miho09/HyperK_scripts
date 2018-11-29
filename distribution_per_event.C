@@ -72,7 +72,7 @@ void distribution_per_event(char *filename=NULL) {
 
 
 
-  TH3D *discorr = new TH3D("coorq", "Cartesian coordinates with charge",100,-4000,4000,100,-4000,4000,1000,-4000,4000);
+  TH3D *discorr = new TH3D("coorq", "Cartesian coordinates with charge",10,-4000,4000,10,-4000,4000,10,-4000,4000);
   // cout << "1" << endl;
   discorr->SetTitle("Charge Distribution");
   // cout << "2" << endl;
@@ -119,7 +119,7 @@ int ncherenkovdigihits = wcsimrootevent->GetNcherenkovdigihits();
     // cout << "6" << endl;
 
     c1->cd();
-    discorr->Draw("SURF3");
+    discorr->Draw("colz,SURF3");
 
 
 
