@@ -103,7 +103,7 @@ void rawPEhits(char *filename=NULL) {
             // WCSimRootCherenkovHitTime *cHitTime = wcsimrootevent->GetCherenkovHitTimes()->At(i);
             //WCSimRootCherenkovHitTime has methods GetTubeId(), GetTruetime()
 
-            WCSimRootCherenkovHit *cHit = wcsimrootevent->GetCherenkovHits()->At(i);
+            WCSimRootCherenkovHit *cHit = wcsimroothyperevent->GetCherenkovHits()->At(i);
             //WCSimRootChernkovDigiHit has methods GetTubeId(), GetT(), GetQ()
             // QvsT->Fill(cDigiHit->GetT(), cDigiHit->GetQ());
 
