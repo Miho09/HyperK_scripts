@@ -119,7 +119,7 @@ int ncherenkovdigihits = wcsimrootevent->GetNcherenkovdigihits();
     // cout << "6" << endl;
 
     c1->cd();
-    discorr->Draw("ISO");
+    discorr->Draw("SURF3");
 
 
 
