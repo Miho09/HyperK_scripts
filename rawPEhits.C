@@ -95,7 +95,7 @@ void rawPEhits(char *filename=NULL) {
       // cout << "Number of Cherenkov tube hits " << wcsimrootevent->GetCherenkovHits()->GetEntries() << endl;
 
       // RAW HITS
-      int ncherenkovhits = wcsimrootevent->GetCherenkovHits()->GetEntries();
+      int ncherenkovhits = wcsimrootevent->GetNCherenkovHits();
         for (int i = 0; i < ncherenkovhits; i++){
       //     WCSimRootCherenkovHit *hit = (WCSimRootCherenkovHit*)
       //     (wcsimrootevent->GetCherenkovHits()->At(i));
@@ -108,7 +108,7 @@ void rawPEhits(char *filename=NULL) {
             // QvsT->Fill(cDigiHit->GetT(), cDigiHit->GetQ());
 
           double truephotons = cHit->GetTotalPE(1);
-          int tubeId = hit -> GetTubeId();
+          int tubeId = cHit -> GetTubeId();
           // // cout << "Tube ID: " << tubeId << endl;
           // WCSimRootPMT pmt = wcsimrootgeom->GetPMT(tubeId);
           // double pmtX = pmt.GetPosition(0);
