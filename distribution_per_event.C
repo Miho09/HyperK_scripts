@@ -117,12 +117,13 @@ int ncherenkovdigihits = wcsimrootevent->GetNcherenkovdigihits();
     float win_scale=0.75;
     TCanvas *c1 = new TCanvas("c1","c1",800,800);
 
-    c1->SetMarkerStyle(21);
 
 
     // cout << "6" << endl;
 
     c1->cd();
+    c1->SetMarkerStyle(21);
+
     discorr->Draw("colz");
 
 
