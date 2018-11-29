@@ -61,7 +61,7 @@ void distribution_per_event(char *filename=NULL) {
   wcsimT->GetEvent(event_num);
 
   // Currently only looks at one event.  I suspect you could loop over more events, if they existed.
-  WCSimRootTrigger *wcsimrootevent = wcsimrootsuperevent->GetTrigger(0);
+  WCSimRootTrigger *wcsimrootevent = wcsimroothyperevent->GetTrigger(0);
 
 
   //--------------------------
