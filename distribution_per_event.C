@@ -119,7 +119,7 @@ int ncherenkovdigihits = wcsimrootevent->GetNcherenkovdigihits();
     // cout << "6" << endl;
 
     c1->cd();
-    discorr->Draw("colz,SURF3");
+    discorr->Draw("colz BOX3");
 
 
 
