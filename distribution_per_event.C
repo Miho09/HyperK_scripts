@@ -122,7 +122,7 @@ int ncherenkovdigihits = wcsimrootevent->GetNcherenkovdigihits();
     // cout << "6" << endl;
 
     c1->cd();
-    c1->SetMarkerStyle(21);
+    discorr->SetMarkerStyle(21);
 
     discorr->Draw("colz");
 
