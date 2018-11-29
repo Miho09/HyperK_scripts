@@ -95,7 +95,7 @@ void rawPEhits(char *filename=NULL) {
       // cout << "Number of Cherenkov tube hits " << wcsimrootevent->GetCherenkovHits()->GetEntries() << endl;
 
       // RAW HITS
-      int ncherenkovhits = wcsimrootevent->GetCherenkovHits()->GetEntries();
+      int ncherenkovhits = wcsimroothyperevent->GetCherenkovHits()->GetEntries();
         for (int i = 0; i < ncherenkovhits; i++){
       //     WCSimRootCherenkovHit *hit = (WCSimRootCherenkovHit*)
       //     (wcsimrootevent->GetCherenkovHits()->At(i));
