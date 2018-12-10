@@ -66,7 +66,7 @@ void q_coor(char *filename=NULL) {
   cout << "Nb of entries " << wcsimT->GetEntries() << endl;
 
   TH1 *q_raw_hist = new TH1D("q_raw_hist", "hist",100, -100, 100);
-  q_raw_hist->SetTitle("Histogram for q_raw")
+  q_raw_hist->SetTitle("Histogram for q_raw");
   // coor_q->SetMinimum(1e-11);
   //
   // coor_q->SetYTitle("Charge distribution in 3D");
@@ -95,7 +95,7 @@ void q_coor(char *filename=NULL) {
             WCSimRootCherenkovHitTime *cHitTime = wcsimrootevent->GetCherenkovHitTimes()->At(i);
             // WCSimRootCherenkovHitTime has methods GetTubeId(), GetTruetime()
 
-            // WCSimRootCherenkovDigiHit *cDigiHit = wcsimrootevent->GetCherenkovDigiHits()->At(i);
+            WCSimRootCherenkovDigiHit *cDigiHit = wcsimrootevent->GetCherenkovDigiHits()->At(i);
             //WCSimRootChernkovDigiHit has methods GetTubeId(), GetT(), GetQ()
             // QvsT->Fill(cDigiHit->GetT(), cDigiHit->GetQ());
             WCSimRootPMT pmt = wcsimrootgeom->GetPMT(tubeId);
@@ -113,7 +113,7 @@ void q_coor(char *filename=NULL) {
             double q_coor = K_value * PhotoElectrons * d_q * expon
 
             // double charge = hit->GetQ();
-            // int tubeId = cHitTime -> GetTubeId();
+            int tubeId = cDigiHit -> GetTubeId();
             // double timing = hit->GetT();
             // // cout << "Tube ID: " << tubeId << endl;
             // WCSimRootPMT pmt = wcsimrootgeom->GetPMT(tubeId);
