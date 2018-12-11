@@ -119,6 +119,7 @@ void q_coor(char *filename=NULL) {
             // double timing = hit->GetT();
             // // cout << "Tube ID: " << tubeId << endl;
             // WCSimRootPMT pmt = wcsimrootgeom->GetPMT(tubeId);
+            cout << "K_value: " << K_value << endl;
             cout << "PE: " << PhotoElectrons << endl;
             cout << "expon: " << expon << endl;
             cout << "d_w: " << d_w << endl;
