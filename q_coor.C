@@ -109,13 +109,11 @@ void q_coor(char *filename=NULL) {
 
             float K_value = 0.0004;
             double PhotoElectrons = cDigiHit->GetQ();
-            float d_w = pmtZ / (cos(TMath::Pi() * 43/180));
+            float d_w = (abs(pmtZ) + 27.) / (cos(TMath::Pi() * 43/180));
             float L_att = 7.;
             double expon = exp(d_w / L_att);
             float f_theta = pow(cos(TMath::Pi() * 47/180), 2);
             // double ang_acc =
-            cout << "f_theta: " << f_theta << endl;
-            cout << "1/f_theta: " << 1 / f_theta << endl;
             float q_coor = (K_value * PhotoElectrons * d_w * expon) / f_theta;
 
             // double charge = hit->GetQ();
