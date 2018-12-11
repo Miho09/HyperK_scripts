@@ -112,7 +112,7 @@ void q_coor(char *filename=NULL) {
             float L_att = 7.;
             double expon = exp(d_w / L_att);
             // double ang_acc =
-            double q_coor = (K_value * PhotoElectrons * d_q * expon);
+            double q_coor = (K_value * PhotoElectrons * d_w * expon);
 
             // double charge = hit->GetQ();
             // double timing = hit->GetT();
