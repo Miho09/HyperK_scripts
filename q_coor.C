@@ -88,11 +88,12 @@ void q_coor(char *filename=NULL) {
       WCSimRootTrigger *wcsimrootevent = wcsimroothyperKevent->GetTrigger(iTrig);
 
       // RAW HITS
-      int ncherenkovhits = wcsimrootevent->GetNcherenkovhits();
-        for (int i = 0; i < ncherenkovhits; i++){
-          WCSimRootCherenkovHit *chit = wcsimrootevent->GetCherenkovHits()->At(i);
-    //WCSimRootChernkovDigiHit has methods GetTubeId(), GetT(), GetQ()
-            WCSimRootCherenkovHitTime *cHitTime = wcsimrootevent->GetCherenkovHitTimes()->At(i);
+      int ncherenkovdigihits = wcsimrootevent->GetNcherenkovdigihits();
+        for (int i = 0; i < ncherenkovdigihits; i++){
+    //       WCSimRootCherenkovDigiHit *hit = (WCSimRootCherenkovDigiHit*)
+    //       (wcsimrootevent->GetCherenkovDigiHits()->At(i));
+    // //WCSimRootChernkovDigiHit has methods GetTubeId(), GetT(), GetQ()
+            // WCSimRootCherenkovHitTime *cHitTime = wcsimrootevent->GetCherenkovHitTimes()->At(i);
             // WCSimRootCherenkovHitTime has methods GetTubeId(), GetTruetime()
 
             WCSimRootCherenkovDigiHit *cDigiHit = wcsimrootevent->GetCherenkovDigiHits()->At(i);
