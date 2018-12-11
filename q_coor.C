@@ -112,7 +112,7 @@ void q_coor(char *filename=NULL) {
             float d_w = pmtZ / (cos(TMath::Pi() * 43/180));
             float L_att = 7.;
             double expon = exp(d_w / L_att);
-            float f_theta = pow(cos(TMath::Pi() * 47/180), 2)
+            float f_theta = pow(cos(TMath::Pi() * 47/180), 2);
             // double ang_acc =
             float q_coor = (K_value * PhotoElectrons * d_w * expon) / f_theta;
 
