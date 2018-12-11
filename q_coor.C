@@ -109,7 +109,7 @@ void q_coor(char *filename=NULL) {
 
             float K_value = (1 / 2500);
             double PhotoElectrons = cDigiHit->GetQ();
-            float d_w = pmtZ / cos(TMath::Pi() * 43/180);
+            float d_w = pmtZ / (cos(TMath::Pi() * 43/180));
             float L_att = 7.;
             double expon = exp(d_w / L_att);
             // double ang_acc =
@@ -119,8 +119,10 @@ void q_coor(char *filename=NULL) {
             // double timing = hit->GetT();
             // // cout << "Tube ID: " << tubeId << endl;
             // WCSimRootPMT pmt = wcsimrootgeom->GetPMT(tubeId);
-            cout << "d_w" << d_w << endl;
-            cout << "q_coor" << q_coor << endl;
+            cout << "PE: " << PhotoElectrons << endl;
+            cout << "expon: " << expon << endl;
+            cout << "d_w: " << d_w << endl;
+            cout << "q_coor: " << q_coor << endl;
             // q_raw_hist->Fill(q_coor);
 
           } // END FOR RAW HITS
