@@ -65,7 +65,7 @@ void q_coor(char *filename=NULL) {
   // As you can see, there are lots of ways to get the number of hits.
   cout << "Nb of entries " << wcsimT->GetEntries() << endl;
 
-  TH1 *q_raw_hist = new TH1D("q_raw_hist", "hist",100, -100, 100);
+  TH1 *q_raw_hist = new TH1D("q_raw_hist", "hist",100, 0, 300);
   q_raw_hist->SetTitle("Histogram for q_raw");
   // coor_q->SetMinimum(1e-11);
   //
