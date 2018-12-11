@@ -65,8 +65,8 @@ void q_coor(char *filename=NULL) {
   // As you can see, there are lots of ways to get the number of hits.
   cout << "Nb of entries " << wcsimT->GetEntries() << endl;
 
-  // TH1 *q_raw_hist = new TH1D("q_raw_hist", "hist",100, 0, 5);
-  // q_raw_hist->SetTitle("Histogram for q_raw");
+  TH1 *q_raw_hist = new TH1D("q_raw_hist", "hist",100, 0, 5);
+  q_raw_hist->SetTitle("Histogram for q_raw");
   // coor_q->SetMinimum(1e-11);
   //
   // coor_q->SetYTitle("Charge distribution in 3D");
@@ -119,12 +119,12 @@ void q_coor(char *filename=NULL) {
             // double timing = hit->GetT();
             // // cout << "Tube ID: " << tubeId << endl;
             // WCSimRootPMT pmt = wcsimrootgeom->GetPMT(tubeId);
-            cout << "K_value: " << K_value << endl;
-            cout << "PE: " << PhotoElectrons << endl;
-            cout << "expon: " << expon << endl;
-            cout << "d_w: " << d_w << endl;
-            cout << "q_coor: " << q_coor << endl;
-            // q_raw_hist->Fill(q_coor);
+            // cout << "K_value: " << K_value << endl;
+            // cout << "PE: " << PhotoElectrons << endl;
+            // cout << "expon: " << expon << endl;
+            // cout << "d_w: " << d_w << endl;
+            // cout << "q_coor: " << q_coor << endl;
+            q_raw_hist->Fill(q_coor);
 
           } // END FOR RAW HITS
           // myfile.close();
@@ -139,13 +139,13 @@ void q_coor(char *filename=NULL) {
   } // END FOR iENTRY
 
 
-   // TH1 *temp;
-   //    q_raw_hist->SetFillColor(2);
-   //
-   //    // gStyle->SetNumberContours(112);
-   //    // gStyle->SetPalette(112);
-   //    // coor_q->Draw("SURF2");
-   //    q_raw_hist->Draw();
+   TH1 *temp;
+      q_raw_hist->SetFillColor(2);
+
+      // gStyle->SetNumberContours(112);
+      // gStyle->SetPalette(112);
+      // coor_q->Draw("SURF2");
+      q_raw_hist->Draw();
 
 
 
