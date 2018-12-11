@@ -66,7 +66,7 @@ void q_coor(char *filename=NULL) {
   cout << "Nb of entries " << wcsimT->GetEntries() << endl;
 
   TH1 *q_raw_hist = new TH1D("q_raw_hist", "hist",100, 0, 200);
-  q_raw_hist->SetTitle("Histogram for q_raw");
+  q_raw_hist->SetTitle("Histogram for q_coor");
   // coor_q->SetMinimum(1e-11);
   //
   // coor_q->SetYTitle("Charge distribution in 3D");
