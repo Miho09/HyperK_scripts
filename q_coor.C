@@ -5,7 +5,7 @@
 #include<sstream>
 #include<fstream>
 #include<iomanip>
-#include <math.h>       /* sin */
+#include<math.h>       /* sin */
 
 
 
@@ -108,7 +108,7 @@ void q_coor(char *filename=NULL) {
 
             float K_value = (1 / 2500);
             double PhotoElectrons = chit->GetTotalPe(1);
-            float d_w = pmtZ / cos(pi * 43/180);
+            float d_w = pmtZ / cos(TMath::Pi() * 43/180);
             float L_att = 7.;
             double expon = exp(d_w / L_att);
             // double ang_acc =
