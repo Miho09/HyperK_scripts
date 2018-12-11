@@ -98,6 +98,8 @@ void q_coor(char *filename=NULL) {
             WCSimRootCherenkovDigiHit *cDigiHit = wcsimrootevent->GetCherenkovDigiHits()->At(i);
             //WCSimRootChernkovDigiHit has methods GetTubeId(), GetT(), GetQ()
             // QvsT->Fill(cDigiHit->GetT(), cDigiHit->GetQ());
+            int tubeId = cDigiHit -> GetTubeId();
+            
             WCSimRootPMT pmt = wcsimrootgeom->GetPMT(tubeId);
 
             double pmtX = pmt.GetPosition(0);
@@ -113,7 +115,6 @@ void q_coor(char *filename=NULL) {
             double q_coor = K_value * PhotoElectrons * d_q * expon
 
             // double charge = hit->GetQ();
-            int tubeId = cDigiHit -> GetTubeId();
             // double timing = hit->GetT();
             // // cout << "Tube ID: " << tubeId << endl;
             // WCSimRootPMT pmt = wcsimrootgeom->GetPMT(tubeId);
