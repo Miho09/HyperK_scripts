@@ -107,7 +107,7 @@ void q_coor(char *filename=NULL) {
             double pmtY = pmt.GetPosition(1);
             double pmtZ = pmt.GetPosition(2);
 
-            long K_value = (1 / 2500);
+            float K_value = 0.0004;
             double PhotoElectrons = cDigiHit->GetQ();
             float d_w = pmtZ / (cos(TMath::Pi() * 43/180));
             float L_att = 7.;
