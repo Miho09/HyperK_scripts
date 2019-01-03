@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <TH3.h>
 #include <TH1.h>
-#include <math.h> 
+#include <math.h>
 
 
 void print_z(char *filename=NULL) {
@@ -113,9 +113,10 @@ void print_z(char *filename=NULL) {
           // double pmtY = pmt.GetPosition(1);
           double pmtZ = pmt.GetPosition(2);
           double real_z = pmtZ + 2750.;
-          double sector = floor(real_z) / 50.;
+
+          // double sector = floor(real_z) / 50.;
           // double sector = real_z / 50.;
-          cout << "sector: " << sector << endl;
+          cout << "floor " << floor(real_z) << endl;
 
             // cout << "Y value: " << pmtY << endl;
           // cout << "4" << endl;
