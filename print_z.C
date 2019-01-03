@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <TH3.h>
 #include <TH1.h>
+#include <math.h> 
 
 
 void print_z(char *filename=NULL) {
