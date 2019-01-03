@@ -6,7 +6,7 @@
 #include <TH1.h>
 
 
-void qraw_xaxis(char *filename=NULL) {
+void print_z(char *filename=NULL) {
   /* A simple script to plot aspects of phototube hits
    * This code is rather cavalier; I should be checking return values, etc.
    * First revision 6-24-10 David Webber
