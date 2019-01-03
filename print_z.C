@@ -65,14 +65,8 @@ void print_z(char *filename=NULL) {
 
 
 
-  // TH2F *Qraw_x = new TH2F("Qraw_x","Raw Charge vs X axis",100,70,80,1000,-4000,4000);
-  //
-  // // TH2D *discorr = new TH3D("coorq", "Cartesian coordinates with charge",100,-4000,4000,100,-4000,4000,1000,-4000,4000);
-  // // cout << "1" << endl;
-  // Qraw_x->SetTitle("Charge Distribution");
-  // // cout << "2" << endl;
-
-  // graph.GetYaxis()->SetTitleOffset(1.4);
+  TH1D *Q_coor = new TH1D("Q_coor","Q_coor", 0,1100,110);
+  Q_coor->SetXTitle("q_coor against Number of PMTs");
 
 
 //ben added
@@ -114,9 +108,11 @@ void print_z(char *filename=NULL) {
           double pmtZ = pmt.GetPosition(2);
           double real_z = pmtZ + 2750.;
 
-          // double sector = floor(real_z) / 50.;
+          double sector = real_z / 50.;
+          double f_sector = floor(sector);
           // double sector = real_z / 50.;
-          cout << "floor " << floor(real_z) << endl;
+          // cout << "floor " << floor(sector) << endl;
+          Q_coor->Fill(f_sector, charge);
 
             // cout << "Y value: " << pmtY << endl;
           // cout << "4" << endl;
@@ -131,11 +127,11 @@ void print_z(char *filename=NULL) {
 
   // cout << "5" << endl;
 
-  // TCanvas *c1 = new TCanvas("c1");
-  //
-  //  Qraw_x->Draw();
-  //  c1->Update();
-  //  Qraw_x->SetMarkerStyle(3);
+  TCanvas *c1 = new TCanvas("c1");
+
+   Q_coor->Draw();
+   c1->Update();
+   Q_coor->SetMarkerStyle(3);
 
    // T->Draw("Cost:Age>>hist","","goff");
 
