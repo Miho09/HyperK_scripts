@@ -112,9 +112,10 @@ void print_z(char *filename=NULL) {
           // double pmtY = pmt.GetPosition(1);
           double pmtZ = pmt.GetPosition(2);
           double real_z = pmtZ + 2750.;
-          double sector = real_z / 50.;
+          double sector = floor(real_z) / 50.;
+          // double sector = real_z / 50.;
           cout << "sector: " << sector << endl;
-          
+
             // cout << "Y value: " << pmtY << endl;
           // cout << "4" << endl;
 
