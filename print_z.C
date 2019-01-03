@@ -111,8 +111,10 @@ void print_z(char *filename=NULL) {
           // double pmtX = pmt.GetPosition(0);
           // double pmtY = pmt.GetPosition(1);
           double pmtZ = pmt.GetPosition(2);
-          cout << "Z axis value: " << pmtZ << endl;
-
+          double real_z = pmtZ + 2750.;
+          double sector = real_z / 50.;
+          cout << "sector: " << sector << endl;
+          
             // cout << "Y value: " << pmtY << endl;
           // cout << "4" << endl;
 
