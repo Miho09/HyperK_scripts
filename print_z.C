@@ -65,7 +65,7 @@ void print_z(char *filename=NULL) {
 
 
 
-  TH1D *Q_coor = new TH1D("Q_coor","Q_coor", 0,1100,110);
+  TH1D *Q_coor = new TH1D("Q_coor","Q_coor", 110,0,1100);
   Q_coor->SetXTitle("q_coor against Number of PMTs");
 
 
