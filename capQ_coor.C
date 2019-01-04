@@ -132,40 +132,30 @@ void capQ_coor(char *filename=NULL) {
     } // END FOR iTRIG
 
   } // END FOR iENTRY
-  vector<int>::iterator it;
 
-  cout << "myvector contains:";
-  for ( it=hist.begin() ; it < hist.end(); it++ ){
-      cout << " " << *it;
-    }
-  cout << endl;
-
-  return 0;
-
-  // vector <double> all_Q_coor(110);
+  vector <double> all_Q_coor(110);
   // cout << "5" << endl;
-  //
-  // for (int bins=0; bins < hist.size(); ++bins){
-  //   double N_pmt = hist[bins].size();
-  //   double sum_q = 0;
-  //   cout << "6" << endl;
-  //
-  //   for (int n_PMT=0; n_PMT < hist[bins].size(); ++n_PMT){
-  //     sum_q += hist[bins][n_PMT];
-  //     cout << "7" << endl;
-  //
-  //
-  //   }
-  //
-  //   all_Q_coor[bins]= sum_q / N_pmt;
-  //   cout << "8" << endl;
-  //
-  // }
+
+  for (int bins=0; bins < hist.size(); ++bins){
+    double N_pmt = hist[bins].size();
+    double sum_q = 0;
+    // cout << "6" << endl;
+
+    for (int n_PMT=0; n_PMT < hist[bins].size(); ++n_PMT){
+      sum_q += hist[bins][n_PMT];
+
+
+    }
+
+    all_Q_coor[bins]= sum_q / N_pmt;
+    // cout << "8" << endl;
+
+  }
   // cout << "9" << endl;
-  //
+
   // for (int i = 0; i < all_Q_coor.size(); ++i)
   // {cout << "element of all_Q_coor: " << all_Q_coor[i];}
-  //
+
 
   // TCanvas *c1 = new TCanvas("c1");
   //
