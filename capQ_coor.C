@@ -96,7 +96,7 @@ void capQ_coor(char *filename=NULL) {
           WCSimRootCherenkovDigiHit *cDigiHit = wcsimrootevent->GetCherenkovDigiHits()->At(i);
 
           double PhotoElectrons = cDigiHit->GetQ();
-
+          cout << "1" << endl;
           int tubeId = hit->GetTubeId();
           double timing = hit->GetT();
           // cout << "Tube ID: " << tubeId << endl;
@@ -108,6 +108,7 @@ void capQ_coor(char *filename=NULL) {
           double index = real_z / 5500;
           double new_index = index * 110;
           double f_index = floor(index);
+          cout << "2" << endl;
 
           float K_value = 0.0004;
           float d_w = (real_z) / (cos(TMath::Pi() * 43/180));
@@ -115,10 +116,11 @@ void capQ_coor(char *filename=NULL) {
           double expon = exp(d_w / L_att);
           float f_theta = pow(cos(TMath::Pi() * 47/180), 2);
           float q_coor = (K_value * PhotoElectrons * d_w * expon) / f_theta;
+          cout << "3" << endl;
 
           // std::tuple<double, double> data(pmtZ, q_coor);
           hist[f_index].push_back(q_coor);
-
+          cout << "4" << endl;
           // Q_coor->Fill(f_sector, charge);
 
           } // END FOR RAW HITS
@@ -129,19 +131,27 @@ void capQ_coor(char *filename=NULL) {
   } // END FOR iENTRY
 
   vector <double> all_Q_coor(110);
+  cout << "5" << endl;
 
   for (int bins=0; bins < hist.size(); ++bins){
     double N_pmt = hist[bins].size();
     double sum_q = 0;
+    cout << "6" << endl;
+
     for (int n_PMT=0; n_PMT < hist[bins].size(); ++n_PMT){
       sum_q += hist[bins][n_PMT];
+      cout << "7" << endl;
+
 
     }
 
     all_Q_coor[bins]= sum_q / N_pmt;
+    cout << "8" << endl;
+
 
 
   }
+  cout << "9" << endl;
 
   for (int i = 0; i < all_Q_coor.size(); ++i)
   {cout << "element of all_Q_coor: " << all_Q_coor[i];}
