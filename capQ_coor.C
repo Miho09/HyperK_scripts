@@ -111,6 +111,7 @@ void capQ_coor(char *filename=NULL) {
           double index = real_z / 5500;
           double new_index = index * 110;
           double f_index = floor(index);
+          cout << "f_index: " << f_index << endl;
           // cout << "2" << endl;
 
           float K_value = 0.0004;
@@ -119,6 +120,7 @@ void capQ_coor(char *filename=NULL) {
           double expon = exp(d_w / L_att);
           float f_theta = pow(cos(TMath::Pi() * 47/180), 2);
           float q_coor = (K_value * PhotoElectrons * d_w * expon) / f_theta;
+          cout << "q_coor: " << q_coor << endl;
           // cout << "3" << endl;
 
           // std::tuple<double, double> data(pmtZ, q_coor);
@@ -139,13 +141,13 @@ void capQ_coor(char *filename=NULL) {
   for (int bins=0; bins < hist.size(); ++bins){
     double N_pmt = hist[bins].size();
     double sum_q = 0;
-    cout << "N_pmt: " << N_pmt << endl;
+    // cout << "N_pmt: " << N_pmt << endl;
 
     // cout << "6" << endl;
 
     for (int n_PMT=0; n_PMT < hist[bins].size(); ++n_PMT){
       sum_q += hist[bins][n_PMT];
-      cout << "sum_q: " << sum_q;
+      // cout << "sum_q: " << sum_q;
     }
 
     // all_Q_coor[bins]= sum_q / N_pmt;
