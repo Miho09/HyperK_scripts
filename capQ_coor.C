@@ -109,7 +109,6 @@ void capQ_coor(char *filename=NULL) {
           double new_index = index * 110;
           double f_index = floor(index);
 
-
           float K_value = 0.0004;
           float d_w = (real_z) / (cos(TMath::Pi() * 43/180));
           float L_att = 70.;
@@ -143,6 +142,10 @@ void capQ_coor(char *filename=NULL) {
 
 
   }
+
+  for (int i = 0; i < all_Q_coor.size(); ++i)
+  {cout << "element of all_Q_coor: " << all_Q_coor[i];}
+
 
   // TCanvas *c1 = new TCanvas("c1");
   //
