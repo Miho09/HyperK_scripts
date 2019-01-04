@@ -129,10 +129,15 @@ void capQ_coor(char *filename=NULL) {
     } // END FOR iTRIG
 
   } // END FOR iENTRY
-  for (int i = 0; i < hist.size(); ++i){
-    std::cout << "element of hist: " << hist[i] << std::endl;
-  }
+  vector<triangle>::iterator it;
 
+  cout << "myvector contains:";
+  for ( it=hist.begin() ; it < hist.end(); it++ )
+      cout << " " << *it;
+
+  cout << endl;
+
+  return 0;
 
   // vector <double> all_Q_coor(110);
   // cout << "5" << endl;
