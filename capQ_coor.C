@@ -129,7 +129,7 @@ void capQ_coor(char *filename=NULL) {
     } // END FOR iTRIG
 
   } // END FOR iENTRY
-  vector<triangle>::iterator it;
+  vector<double>::iterator it;
 
   cout << "myvector contains:";
   for ( it=hist.begin() ; it < hist.end(); it++ )
