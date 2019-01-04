@@ -5,6 +5,12 @@
 #include <TH3.h>
 #include <TH1.h>
 #include <math.h>
+#include <vector>
+// #include <tuple>
+using std::vector;
+// using std::tuple;
+// using std::get;
+
 
 
 void capQ_coor(char *filename=NULL) {
@@ -56,24 +62,20 @@ void capQ_coor(char *filename=NULL) {
   // calls to GetEvent()
   wcsimT->GetBranch("wcsimrootevent")->SetAutoDelete(kTRUE);
 
-
   //--------------------------
   // As you can see, there are lots of ways to get the number of hits.
   cout << "Nb of entries " << wcsimT->GetEntries() << endl;
 
   //-----------------------
 
+  // TH1D *Q_coor = new TH1D("Q_coor","Q_coor", 100,0,100);
+  // Q_coor->SetXTitle("q_coor against Number of PMTs");
 
 
-  TH1D *Q_coor = new TH1D("Q_coor","Q_coor", 100,0,100);
-  Q_coor->SetXTitle("q_coor against Number of PMTs");
-
-
-//ben added
-// string rootfilename;
-// cout << "Enter name of file for test root file: " << endl;
-// cin >> rootfilename;
   const long unsigned int nbEntries = wcsimT->GetEntries();
+  vector <double> arr(0);
+  vector<vector<double> >  hist(115;arr);
+
 
   for(long unsigned int iEntry = 0; iEntry < nbEntries; iEntry++){
     // Point to event iEntry inside WCSimTree
@@ -90,16 +92,12 @@ void capQ_coor(char *filename=NULL) {
         for (int i = 0; i < ncherenkovdigihits; i++){
           WCSimRootCherenkovDigiHit *hit = (WCSimRootCherenkovDigiHit*)
           (wcsimrootevent->GetCherenkovDigiHits()->At(i));
-      //WCSimRootChernkovDigiHit has methods GetTubeId(), GetT(), GetQ()
-            // WCSimRootCherenkovHitTime *cHitTime = wcsimrootevent->GetCherenkovHitTimes()->At(i);
-            //WCSimRootCherenkovHitTime has methods GetTubeId(), GetTruetime()
 
-            WCSimRootCherenkovDigiHit *cDigiHit = wcsimrootevent->GetCherenkovDigiHits()->At(i);
-            //WCSimRootChernkovDigiHit has methods GetTubeId(), GetT(), GetQ()
-            // QvsT->Fill(cDigiHit->GetT(), cDigiHit->GetQ());
+          WCSimRootCherenkovDigiHit *cDigiHit = wcsimrootevent->GetCherenkovDigiHits()->At(i);
 
-          double charge = hit->GetQ();
-          int tubeId = hit -> GetTubeId();
+          double PhotoElectrons = cDigiHit->GetQ();
+
+          int tubeId = hit->GetTubeId();
           double timing = hit->GetT();
           // cout << "Tube ID: " << tubeId << endl;
           WCSimRootPMT pmt = wcsimrootgeom->GetPMT(tubeId);
@@ -107,32 +105,50 @@ void capQ_coor(char *filename=NULL) {
           // double pmtY = pmt.GetPosition(1);
           double pmtZ = pmt.GetPosition(2);
           double real_z = pmtZ + 2750.;
+          double index = real_z / 5500;
+          double new_index = index * 110;
+          double f_index = floor(index);
 
-          double sector = real_z / 50.;
-          double f_sector = floor(sector);
-          // if
-          // double sector = real_z / 50.;
-          // cout << "floor " << floor(sector) << endl;
-          Q_coor->Fill(f_sector, charge);
 
-            // cout << "Y value: " << pmtY << endl;
-          // cout << "4" << endl;
+          float K_value = 0.0004;
+          float d_w = (real_z) / (cos(TMath::Pi() * 43/180));
+          float L_att = 70.;
+          double expon = exp(d_w / L_att);
+          float f_theta = pow(cos(TMath::Pi() * 47/180), 2);
+          float q_coor = (K_value * PhotoElectrons * d_w * expon) / f_theta;
 
-          // Qraw_x->Fill(charge, pmtX);
+          // std::tuple<double, double> data(pmtZ, q_coor);
+          hist[f_index].push_back(q_coor);
+
+          // Q_coor->Fill(f_sector, charge);
 
           } // END FOR RAW HITS
+
 
     } // END FOR iTRIG
 
   } // END FOR iENTRY
 
-  // cout << "5" << endl;
+  vector <double> all_Q_coor(110);
 
-  TCanvas *c1 = new TCanvas("c1");
+  for (int bins=0; bins < hist.size(); ++bins){
+    double N_pmt = hist[bins].size();
+    double sum_q = 0;
+    for (int n_PMT=0; n_PMT < hist[bins].size(); ++n_PMT){
+      sum_q += hist[bins][n_PMT];
 
-   Q_coor->Draw();
-   c1->Update();
-   Q_coor->SetMarkerStyle(3);
+    }
+
+    all_Q_coor[bins]= sum_q / N_pmt;
+
+
+  }
+
+  // TCanvas *c1 = new TCanvas("c1");
+  //
+  //  Q_coor->Draw();
+  //  c1->Update();
+  //  Q_coor->SetMarkerStyle(3);
 
    // T->Draw("Cost:Age>>hist","","goff");
 
