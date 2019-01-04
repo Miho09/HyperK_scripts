@@ -108,8 +108,12 @@ void capQ_coor(char *filename=NULL) {
           // double pmtY = pmt.GetPosition(1);
           double pmtZ = pmt.GetPosition(2);
           double real_z = pmtZ + 2750.;
+          cout << "real_z: " << real_z << endl;
           double index = real_z / 5500;
+          cout << "index: " << index << endl;
           double new_index = index * 110;
+          cout << "new_index: " << new_index << endl;
+
           double f_index = floor(index);
           cout << "f_index: " << f_index << endl;
           // cout << "2" << endl;
@@ -120,7 +124,7 @@ void capQ_coor(char *filename=NULL) {
           double expon = exp(d_w / L_att);
           float f_theta = pow(cos(TMath::Pi() * 47/180), 2);
           float q_coor = (K_value * PhotoElectrons * d_w * expon) / f_theta;
-          cout << "q_coor: " << q_coor << endl;
+          // cout << "q_coor: " << q_coor << endl;
           // cout << "3" << endl;
 
           // std::tuple<double, double> data(pmtZ, q_coor);
