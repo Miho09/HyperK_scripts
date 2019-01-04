@@ -6,6 +6,7 @@
 #include <TH1.h>
 #include <math.h>
 #include <vector>
+#include <iterator>
 // #include <tuple>
 using std::vector;
 // using std::tuple;
@@ -129,7 +130,7 @@ void capQ_coor(char *filename=NULL) {
     } // END FOR iTRIG
 
   } // END FOR iENTRY
-  vector<double>::iterator it;
+  vector<triangle>::iterator it;
 
   cout << "myvector contains:";
   for ( it=hist.begin() ; it < hist.end(); it++ )
