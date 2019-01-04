@@ -108,13 +108,13 @@ void capQ_coor(char *filename=NULL) {
           // double pmtY = pmt.GetPosition(1);
           double pmtZ = pmt.GetPosition(2);
           double real_z = pmtZ + 2750.;
-          cout << "real_z: " << real_z << endl;
+          // cout << "real_z: " << real_z << endl;
           double index = real_z / 5500;
-          cout << "index: " << index << endl;
+          // cout << "index: " << index << endl;
           double new_index = index * 110;
-          cout << "new_index: " << new_index << endl;
+          // cout << "new_index: " << new_index << endl;
 
-          double f_index = floor(index);
+          double f_index = floor(new_index);
           cout << "f_index: " << f_index << endl;
           // cout << "2" << endl;
 
