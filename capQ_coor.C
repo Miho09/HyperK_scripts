@@ -129,7 +129,6 @@ void capQ_coor(char *filename=NULL) {
 
           // std::tuple<double, double> data(pmtZ, q_coor);
           hist[f_index].push_back(q_coor);
-          cout << "hist[f_index]: " << hist[f_index] << endl;
            // cout << "4" << endl;
           // Q_coor->Fill(f_sector, charge);
 
@@ -143,19 +142,21 @@ void capQ_coor(char *filename=NULL) {
   vector <double> all_Q_coor(110);
   // cout << "5" << endl;
 
+
   for (int bins=0; bins < hist.size(); ++bins){
     double N_pmt = hist[bins].size();
+
     double sum_q = 0;
-    // cout << "N_pmt: " << N_pmt << endl;
+    cout << "N_pmt: " << N_pmt << endl;
 
     // cout << "6" << endl;
 
     for (int n_PMT=0; n_PMT < hist[bins].size(); ++n_PMT){
       sum_q += hist[bins][n_PMT];
-      // cout << "sum_q: " << sum_q;
+      cout << "sum_q: " << sum_q;
     }
-
-    all_Q_coor[bins]= sum_q / N_pmt;
+    cout << "sumq / N_pmt: " << sum_q / N_pmt << endl;
+    // all_Q_coor[bins]= sum_q / N_pmt;
     // cout << "8" << endl;
 
   }
