@@ -129,7 +129,8 @@ void capQ_coor(char *filename=NULL) {
 
           // std::tuple<double, double> data(pmtZ, q_coor);
           hist[f_index].push_back(q_coor);
-          // cout << "4" << endl;
+          cout << "hist[f_index]: " << hist[f_index] << endl;
+           // cout << "4" << endl;
           // Q_coor->Fill(f_sector, charge);
 
           } // END FOR RAW HITS
