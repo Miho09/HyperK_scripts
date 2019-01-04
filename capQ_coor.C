@@ -130,7 +130,7 @@ void capQ_coor(char *filename=NULL) {
 
   } // END FOR iENTRY
   for (int i = 0; i < hist.size(); ++i){
-    cout << "element of hist: " << hist[i] << endl;
+    std::cout << "element of hist: " << hist[i] << std::endl;
   }
 
 
