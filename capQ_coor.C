@@ -115,7 +115,7 @@ void capQ_coor(char *filename=NULL) {
           // cout << "new_index: " << new_index << endl;
 
           double f_index = floor(new_index);
-          cout << "f_index: " << f_index << endl;
+          // cout << "f_index: " << f_index << endl;
           // cout << "2" << endl;
 
           float K_value = 0.0004;
@@ -154,7 +154,7 @@ void capQ_coor(char *filename=NULL) {
       // cout << "sum_q: " << sum_q;
     }
 
-    // all_Q_coor[bins]= sum_q / N_pmt;
+    all_Q_coor[bins]= sum_q / N_pmt;
     // cout << "8" << endl;
 
   }
