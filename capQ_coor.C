@@ -129,8 +129,9 @@ void capQ_coor(char *filename=NULL) {
     } // END FOR iTRIG
 
   } // END FOR iENTRY
-  for (int i = 0; i < hist.size(); ++i)
-  {cout << "element of hist: " << hist[i];}
+  for (int i = 0; i < hist.size(); ++i){
+    cout << "element of hist: " << hist[i] << endl;
+  }
 
 
   // vector <double> all_Q_coor(110);
