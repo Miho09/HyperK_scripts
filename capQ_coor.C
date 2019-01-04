@@ -139,15 +139,16 @@ void capQ_coor(char *filename=NULL) {
   for (int bins=0; bins < hist.size(); ++bins){
     double N_pmt = hist[bins].size();
     double sum_q = 0;
+    cout << "N_pmt: " << N_pmt << endl;
+
     // cout << "6" << endl;
 
     for (int n_PMT=0; n_PMT < hist[bins].size(); ++n_PMT){
       sum_q += hist[bins][n_PMT];
-
-
+      cout << "sum_q: " << sum_q;
     }
 
-    all_Q_coor[bins]= sum_q / N_pmt;
+    // all_Q_coor[bins]= sum_q / N_pmt;
     // cout << "8" << endl;
 
   }
